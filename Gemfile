@@ -17,6 +17,8 @@ gem 'pg', '>= 0.18', '< 2.0'
 gem 'kaminari', '~> 1.2'
 # Allows you to generate your JSON in an object-oriented and convention-driven manner
 gem 'active_model_serializers', '~> 0.10.10'
+# Add support to complex resources of PostgreSQL
+gem 'torque-postgresql', '~> 1.1.4'
 
 ## ASYNC PROCESS RELATED
 # Use Redis adapter to run Action Cable in production

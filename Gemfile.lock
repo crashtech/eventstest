@@ -236,6 +236,9 @@ GEM
       sprockets (>= 3.0.0)
     thor (1.0.1)
     thread_safe (0.3.6)
+    torque-postgresql (1.1.4)
+      pg (>= 0.18)
+      rails (>= 5.0)
     tzinfo (1.2.7)
       thread_safe (~> 0.1)
     unicode-display_width (1.7.0)
@@ -280,6 +283,7 @@ DEPENDENCIES
   sidekiq (~> 6.0, >= 6.0.6)
   sidekiq-cron (~> 1.2)
   simplecov (~> 0.18.5)
+  torque-postgresql (~> 1.1.4)
   tzinfo (~> 1.2, >= 1.2.5)
   tzinfo-data
   web-console (>= 3.3.0)
