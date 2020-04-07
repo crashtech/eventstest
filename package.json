@@ -1,6 +1,11 @@
 {
   "name": "test99",
   "private": true,
+  "scripts": {
+    "pre-commit": "lint-staged",
+    "eslint": "eslint app/javascript -f codeframe --ext .js,.jsx",
+    "eslint:fix": "eslint app/javascript --fix -f codeframe --ext .js,.jsx"
+  },
   "dependencies": {
     "@babel/plugin-proposal-decorators": "^7.8.3",
     "@babel/preset-react": "^7.9.4",
