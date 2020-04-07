@@ -5,7 +5,6 @@ class ApiController < ApplicationController
   rescue_from ActionController::ParameterMissing, with: :invalid_data
 
   serialization_scope :view_context
-  respond_to :json
 
   # Just so it has a root url
   def index

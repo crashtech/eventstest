@@ -16,11 +16,18 @@
 #  unique_verified_music_genres_name  (name) UNIQUE WHERE (verified_at IS NOT NULL)
 #
 class MusicGenre < ApplicationRecord
+  include HasFuzzySearch
   include HasSlug
   include HasVerification
 
+  ## Config
+  fuzzysearch :name
+
   ## Associations
   has_many :events, array: true
+
+  ## Scopes
+  scope :default_sortted, -> { order(:name) }
 
   ## Validations
   validates :name, presence: true

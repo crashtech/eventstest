@@ -2,11 +2,14 @@ require 'sidekiq/web'
 require 'sidekiq/cron/web'
 
 Rails.application.routes.draw do
-  root 'application#index'
+  scope path: '/api' do
+    mount ActionCable.server, at: '/cable'
+
+    get '/typeahead/:action', controller: 'typeahead'
+  end
 
   mount Sidekiq::Web, at: '/sidekiq'
 
-  scope path: '/api' do
-    mount ActionCable.server, at: '/cable'
-  end
+  match '*path', to: 'application#index', via: :all
+  root 'application#index'
 end

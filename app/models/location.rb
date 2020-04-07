@@ -14,10 +14,17 @@
 #  unique_verified_locations_name  (name) UNIQUE WHERE (verified_at IS NOT NULL)
 #
 class Location < ApplicationRecord
+  include HasFuzzySearch
   include HasVerification
+
+  ## Config
+  fuzzysearch :name
 
   ## Associations
   has_many :events
+
+  ## Scopes
+  scope :default_sortted, -> { order(:name) }
 
   ## Validations
   validates :name, presence: true
