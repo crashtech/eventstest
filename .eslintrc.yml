@@ -1,0 +1,180 @@
+env:
+  es6: true
+  browser: true
+
+extends:
+  - 'eslint:recommended'
+  - 'plugin:react/recommended'
+
+globals:
+  IMAGES: readonly
+  TRUENO_DATA: readonly
+
+  process: readonly
+  Atomics: readonly
+  SharedArrayBuffer: readonly
+
+parser: babel-eslint
+parserOptions:
+  ecmaFeatures:
+    legacyDecorators: true
+    jsx: true
+  ecmaVersion: 2018
+  sourceType: module
+
+plugins:
+  - react
+
+noInlineConfig: true
+rules:
+  no-prototype-builtins: off
+  react/no-unescaped-entities: off
+  react/display-name: off
+  react/prop-types:
+    - error
+    - skipUndeclared: true
+
+  no-setter-return: error
+  no-template-curly-in-string: error
+  no-console:
+    - error
+    - allow: [error, debug, warn, dir]
+  indent:
+    - error
+    - 2
+    - SwitchCase: 1
+  linebreak-style:
+    - error
+    - unix
+  quotes:
+    - error
+    - single
+  semi:
+    - error
+    - never
+
+  accessor-pairs: warn
+  default-param-last: error
+  grouped-accessor-pairs: error
+  no-alert: error
+  no-constructor-return: error
+  no-floating-decimal: error
+  no-global-assign: error
+  no-lone-blocks: error
+  no-loop-func: warn
+  no-multi-spaces: error
+  no-multi-str: error
+  no-new-wrappers: error
+  no-redeclare: error
+  no-script-url: error
+  no-self-compare: error
+  no-throw-literal: error
+  no-unmodified-loop-condition: error
+  no-useless-concat: warn
+  no-useless-escape: warn
+  no-useless-return: error
+  vars-on-top: error
+  complexity:
+    - warn
+    - 20
+  curly:
+    - error
+    - all
+  dot-location:
+    - error
+    - property
+  dot-notation:
+    - warn
+    - allowPattern: '^[a-z]+(_[a-z]+)+$'
+  eqeqeq:
+    - error
+    - smart
+  max-classes-per-file:
+    - error
+    - 3
+  no-unused-expressions:
+    - error
+    - allowTaggedTemplates: true
+      allowShortCircuit: true
+      allowTernary: true
+  yoda:
+    - error
+    - never
+
+  no-shadow: error
+  no-undef-init: error
+  no-use-before-define: error
+  no-unused-vars:
+    - error
+    - ignoreRestSiblings: true
+      argsIgnorePattern: '^_'
+
+  block-spacing: error
+  camelcase: error
+  no-lonely-if: error
+  no-trailing-spaces: error
+  no-unneeded-ternary: error
+  no-whitespace-before-property: error
+  template-tag-spacing: error
+  brace-style:
+    - error
+    - 1tbs
+    - allowSingleLine: true
+  comma-dangle:
+    - error
+    - only-multiline
+  comma-spacing:
+    - error
+    - before: false
+      after: true
+  computed-property-spacing:
+    - error
+    - never
+  eol-last:
+    - error
+    - always
+  func-call-spacing:
+    - error
+    - never
+  function-call-argument-newline:
+    - error
+    - consistent
+  implicit-arrow-linebreak:
+    - error
+    - beside
+  jsx-quotes:
+    - error
+    - prefer-double
+  lines-between-class-members:
+    - error
+    - always
+  max-len:
+    - error
+    - code: 160
+  operator-assignment:
+    - error
+    - always
+  padded-blocks:
+    - error
+    - never
+
+  no-duplicate-imports: error
+  no-useless-computed-key: error
+  no-useless-constructor: error
+  no-useless-rename: error
+  no-var: error
+  prefer-arrow-callback: warn
+  prefer-const: warn
+  prefer-destructuring: warn
+  prefer-template: error
+  template-curly-spacing: error
+  arrow-body-style:
+    - error
+    - as-needed
+  arrow-parens:
+    - error
+    - as-needed
+  arrow-spacing:
+    - error
+    - before: true
+      after: true

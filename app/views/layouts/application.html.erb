@@ -2,14 +2,18 @@
 <html>
   <head>
     <title>Test99</title>
-    <%= csrf_meta_tags %>
-    <%= csp_meta_tag %>
 
-    <%= stylesheet_link_tag    'application', media: 'all' %>
-    <%= javascript_include_tag 'application' %>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimal-ui">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="msapplication-TileColor" content="#212121" />
+    <meta name="application-name" content="Test 99Hunters" />
+
+    <%= stylesheet_link_tag 'application', media: 'all' %>
+    <%= javascript_pack_tag 'application' %>
   </head>
-
   <body>
-    <%= yield %>
+    <main id="layout" class="loading">
+      <span>Loading</span>
+    </main>
   </body>
 </html>
