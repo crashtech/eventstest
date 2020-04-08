@@ -1,0 +1,20 @@
+body {
+  background-color: #333333;
+}
+
+body > main#layout {
+  width: 100%;
+  color: white;
+  display: grid;
+  min-height: 100%;
+  padding: 6.5rem 2rem 2rem;
+
+  > .ui.segment {
+    border: none;
+    border-radius: 0;
+  }
+
+  .ui.segment .ui.header {
+    color: inherit;
+  }
+}

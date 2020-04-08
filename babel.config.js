@@ -54,7 +54,7 @@ module.exports = function(api) {
       [
         '@babel/plugin-proposal-decorators',
         {
-          decoratorsBeforeExport: true
+          legacy: true
         }
       ],
       [

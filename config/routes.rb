@@ -6,6 +6,10 @@ Rails.application.routes.draw do
     mount ActionCable.server, at: '/cable'
 
     get '/typeahead/:action', controller: 'typeahead'
+
+    namespace :shared do
+      get :music_genres
+    end
   end
 
   mount Sidekiq::Web, at: '/sidekiq'

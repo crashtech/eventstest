@@ -1,0 +1,20 @@
+div.sortable-field {
+  + .ui.list {
+    border-top: 1px dashed rgba(34,36,38,.15);
+    color: rgba(0,0,0,.87);
+
+    > .item {
+      padding: 1em 0;
+      border-color: #eee;
+
+      > i.icon {
+        float: right;
+        cursor: pointer;
+      }
+    }
+  }
+}
+
+body > div.item > i.icon {
+  visibility: hidden;
+}

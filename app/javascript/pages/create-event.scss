@@ -1,0 +1,20 @@
+form#create-concert,
+form#create-festival {
+  padding: 1.5rem;
+  min-width: 400px;
+  border-radius: 0.75rem;
+  background-color: white;
+  place-self: center center;
+
+  .ui.header {
+    text-align: center;
+  }
+}
+
+form#create-festival {
+  min-width: 800px;
+
+  .ui.grid {
+    margin-bottom: 0;
+  }
+}
