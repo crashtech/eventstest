@@ -67,10 +67,10 @@ export default class BaseForm extends Component {
 
   renderLocation() {
     return <Form.Field
-      name="location_id"
+      name="location"
       control={Typeahead}
       label="Location"
-      value={this.payload['location_id']}
+      value={this.payload['location']}
       onChange={this.onChange}
       source="locations"
       allowAdditions
@@ -79,17 +79,22 @@ export default class BaseForm extends Component {
   }
 
   renderGenres() {
+    const addItem = action((_, { value }) => this.musicGenres.push({ value, text: value }))
+
     return <Form.Field
-      name="music_genre_ids"
+      name="music_genres"
       control={Select}
       label="Music Genre"
-      value={this.payload['music_genre_ids']}
+      value={this.payload['music_genres']}
       onChange={this.onChange}
       source="music_genres"
       loading={!this.musicGenres.length}
       options={this.musicGenres}
+      onAddItem={addItem}
+      allowAdditions
       multiple
       required
+      search
     />
   }
 }

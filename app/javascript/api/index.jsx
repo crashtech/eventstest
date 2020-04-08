@@ -2,6 +2,7 @@ import axios from 'axios'
 
 import makeMobxLocation from 'mobx-location'
 
+import EventsApi from './events'
 import SharedApi from './shared'
 import TypeaheadApi from './typeahead'
 
@@ -20,7 +21,7 @@ Api.interceptors.request.use(config => {
   return config
 })
 
-export { SharedApi, TypeaheadApi }
+export { EventsApi, SharedApi, TypeaheadApi }
 
 export const CABLE_URL = `${BASE_URL}/cable`.replace(/^http/, 'ws')
 export default Api

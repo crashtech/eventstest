@@ -20,9 +20,13 @@
 #  index_events_on_music_genre_ids  (music_genre_ids) USING gin
 #
 class Event < ApplicationRecord
+  ## Config
+  easy_association_assign :location, :artists, :music_genres
+
   ## Associations
   belongs_to :location
   belongs_to_many :artists
+  belongs_to_many :music_genres
 
   ## Scopes
   scope :with_genres, ->(*values) { where(arel_attribute(:music_genre_ids).contains(Arel.array(values, cast: :bigint))) }

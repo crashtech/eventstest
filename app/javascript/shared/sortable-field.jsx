@@ -1,11 +1,11 @@
 import React, { Component, Fragment } from 'react'
 import PropTypes from 'prop-types'
-import { find } from 'lodash'
+import { find, map } from 'lodash'
 
-import { SortableContainer, SortableElement } from 'react-sortable-hoc';
+import { SortableContainer, SortableElement } from 'react-sortable-hoc'
 import { Select, List, Icon } from 'semantic-ui-react'
+import { observable, action, toJS } from 'mobx'
 import { observer } from 'mobx-react'
-import { toJS } from 'mobx'
 
 import Typeahead from '@shared/typeahead'
 
@@ -33,6 +33,8 @@ const SortableList = SortableContainer(({items, onRemove}) => (
 
 @observer
 export default class SortableField extends Component {
+  @observable internalValue = []
+
   static propTypes = {
     value: PropTypes.array,
     onChange: PropTypes.func.isRequired,
@@ -47,42 +49,37 @@ export default class SortableField extends Component {
   }
 
   get component() {
-    return !!this.props.typeahead ? Typeahead : Select
+    return this.props.typeahead ? Typeahead : Select
   }
 
-  change(newValue) {
+  change() {
     const { onChange } = this.props
-    onChange(newValue)
+    onChange(map(this.internalValue, 'value'))
   }
 
-  addItem = (_, data) => {
+  @action addItem = (_, data) => {
     const option = toJS(data.options.find(({ value }) => value === data.value)) || { value: data.value, text: data.value }
-    const newValue = toJS(this.props.value)
+    if(find(this.internalValue, { value: option.value })) { return }
 
-    if(!!find(newValue, { value: option.value })) { return }
-    newValue.push(option)
-    this.change(newValue)
+    this.internalValue.push(option)
+    this.change()
   }
 
-  removeItem = (index) => {
-    const newValue = toJS(this.props.value)
-
-    newValue.splice(index, 1)
-    this.change(newValue)
+  @action removeItem = index => {
+    this.internalValue.splice(index, 1)
+    this.change()
   }
 
-  changeOrder = ({ oldIndex, newIndex }) => {
-    const newValue = toJS(this.props.value)
-    const item = newValue[oldIndex]
-
-    newValue.splice(oldIndex, 1)
-    newValue.splice(newIndex, 0, item)
-    this.change(newValue)
+  @action changeOrder = ({ oldIndex, newIndex }) => {
+    const item = this.internalValue[oldIndex]
+    this.internalValue.splice(oldIndex, 1)
+    this.internalValue.splice(newIndex, 0, item)
+    this.change()
   }
 
   render() {
     const { onChange, value, typeahead, ...rest } = this.props
-    if(!!typeahead) { rest.source = typeahead }
+    if(typeahead) { rest.source = typeahead }
 
     return <Fragment>
       <this.component
@@ -93,7 +90,7 @@ export default class SortableField extends Component {
       />
 
       <SortableList
-        items={value}
+        items={this.internalValue}
         pressDelay={200}
         onSortEnd={this.changeOrder}
         onRemove={this.removeItem}

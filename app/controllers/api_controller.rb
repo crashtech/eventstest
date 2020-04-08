@@ -6,6 +6,8 @@ class ApiController < ApplicationController
 
   serialization_scope :view_context
 
+  skip_before_action :verify_authenticity_token
+
   # Just so it has a root url
   def index
     render json: { version: 'v1' }
@@ -27,7 +29,7 @@ class ApiController < ApplicationController
       if Rails.env.production?
         render json: { error: I18n.t(:exception) }, status: :internal_server_error
       else
-        backtrace = exception.backtrace.select { |path| path.start_with?(Rails.root.to_s) }
+        backtrace = exception.backtrace# .select { |path| path.start_with?(Rails.root.to_s) }
         render plain: <<~ERROR, status: :internal_server_error
         [#{exception.class.name}]
         #{exception.message};

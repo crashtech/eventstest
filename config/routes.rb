@@ -7,6 +7,8 @@ Rails.application.routes.draw do
 
     get '/typeahead/:action', controller: 'typeahead'
 
+    resources :events, only: %i[index create]
+
     namespace :shared do
       get :music_genres
     end

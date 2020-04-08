@@ -14,12 +14,12 @@ module HasSlug
   protected
 
     def valid_slug?
-      slug.match? /\A[-a-z0-9]{3,32}\z/
+      slug&.match? /\A[-a-z0-9]{3,32}\z/
     end
 
   private
 
     def validate_slug
-      errors.add(:slug, :invalid) unless valid_slug?
+      errors.add(:slug, :invalid) if slug.present? && !valid_slug?
     end
 end

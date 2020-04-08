@@ -20,9 +20,15 @@
 #  index_events_on_music_genre_ids  (music_genre_ids) USING gin
 #
 class EventConcert < Event
-  validates_length_of :artist_ids, is: 1
+  validate :artists_limit
 
   def artist
     artists.first
   end
+
+  private
+
+    def artists_limit
+      errors.add(:artist_ids, :invalid) if Array.wrap(artist_ids).size > 1
+    end
 end
