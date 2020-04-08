@@ -23,6 +23,14 @@ class ApiController < ApplicationController
       relation
     end
 
+    # Apply a set of scopes checking if the designated param is present
+    def apply_filters(scope_params, collection)
+      scope_params.inject(collection) do |relation, (scope, param_key)|
+        next relation if params[param_key].blank?
+        relation.public_send(scope, params[param_key])
+      end
+    end
+
     # Handle any other exception
     def internal_error(exception)
       log_error_message(exception, :fatal)

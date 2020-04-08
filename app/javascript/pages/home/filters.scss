@@ -1,0 +1,14 @@
+body > main#layout > div#filters {
+  grid-area: 1 / 1 / 1 / 1;
+  place-self: stretch start;
+  border-radius: 0.5em;
+  min-width: 200px;
+
+  .item {
+    line-height: 1.75em;
+  }
+
+  .ui.header {
+    color: black;
+  }
+}

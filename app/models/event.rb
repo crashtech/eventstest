@@ -29,7 +29,14 @@ class Event < ApplicationRecord
   belongs_to_many :music_genres
 
   ## Scopes
-  scope :with_genres, ->(*values) { where(arel_attribute(:music_genre_ids).contains(Arel.array(values, cast: :bigint))) }
+  scope :default_sortted, -> { order(:date) }
+  scope :future, -> { where(arel_attribute(:date).gteq(Date.current)) }
+
+  scope :without_genres, ->(*values) do
+    values = Arel.array(values, cast: :bigint)
+    condition = arel_attribute(:music_genre_ids).overlaps(values)
+    where(Arel::Nodes::Not.new(condition))
+  end
 
   ## Validations
   validates :date, presence: true

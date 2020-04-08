@@ -4,6 +4,16 @@ class ApplicationRecord < ActiveRecord::Base
 
   before_validation :nullify_attributes
 
+  def self.using_timezone(zone = nil, &block)
+    zone ||= Time.zone.tzinfo.name
+
+    transaction do
+      zone = connection.quote(zone)
+      connection.execute(%{SET LOCAL TIME ZONE #{zone}})
+      block.call
+    end
+  end
+
   def self.easy_association_assign(*columns, create_column: :name)
     columns.each do |column|
       define_method("#{column}=") do |value|
