@@ -1,2 +1,0 @@
-web: bundle exec rails server -p 3003 -b 0.0.0.0
-webpack: yarn exec ./bin/webpack-dev-server

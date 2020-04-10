@@ -18,6 +18,7 @@
 /public/assets
 .byebug_history
 .foreman
+Procfile.dev
 
 # Ignore master key for decrypting credentials and more.
 /config/master.key
