@@ -54,6 +54,6 @@
   },
   "lint-staged": {
     "**/!(schema).{rb,erb,arb}": "rubocop -a",
-    "**/*.{js,jsx}": "eslint --fix -f codeframe --ext .js,.jsx --quiet"
+    "!(tests)*/*.{js,jsx}": "eslint --fix -f codeframe --ext .js,.jsx --quiet"
   }
 }
