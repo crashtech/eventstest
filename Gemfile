@@ -20,21 +20,11 @@ gem 'active_model_serializers', '~> 0.10.10'
 # Add support to complex resources of PostgreSQL
 gem 'torque-postgresql', '~> 1.1.4'
 
-## ASYNC PROCESS RELATED
-# Use Redis adapter to run Action Cable in production
-gem 'redis-rails', '~> 5.0', '>= 5.0.2'
-
 ## SERVER RELATED
 # Use Puma as the app server
 gem 'puma', '~> 4.3', '>= 4.3.3'
 # Use Rack CORS for handling Cross-Origin Resource Sharing (CORS), making cross-origin AJAX possible
 gem 'rack-cors', '~> 1.1', '>= 1.1.1'
-# Simple, efficient background processing for Ruby
-gem 'sidekiq', '~> 6.0', '>= 6.0.6'
-# Enables to set jobs to be run in specified time (using CRON notation)
-gem 'sidekiq-cron', '~> 1.2'
-# Generic connection pool for Ruby
-gem 'connection_pool', '~> 2.2', '>= 2.2.2'
 
 ## EXTRAS
 # TZInfo provides daylight savings aware transformations between times in different time zones
