@@ -15,6 +15,13 @@ bin/setup
 
 This will guide you through the process of basic configuration.
 
+# Fake data
+
+The application provides an exectable to create fake events, so you can test it
+without the need to manually create multiple events.
+
+Check `bin/fakeevent -h` for more information
+
 # Testing
 
 You can tun all tests using: `yarn test`.
