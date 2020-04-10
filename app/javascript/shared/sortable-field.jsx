@@ -1,4 +1,4 @@
-import React, { Component, Fragment } from 'react'
+import React, { Component, Fragment, lazy } from 'react'
 import PropTypes from 'prop-types'
 import { find, map } from 'lodash'
 

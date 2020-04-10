@@ -93,7 +93,7 @@ export default class Listing extends Component {
     const { fetcher, items } = this.props
 
     this.loading = true
-    fetcher({ page: this.page += 1 }).then(result => {
+    return fetcher({ page: this.page += 1 }).then(result => {
       result.update([...items, ...result.data])
       this.loading = false
 

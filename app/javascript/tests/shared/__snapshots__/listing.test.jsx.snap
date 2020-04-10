@@ -1,0 +1,265 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Can be divided by day 1`] = `
+<div
+  className="ui basic segment listing"
+>
+  <div
+    className="ui divided list"
+    role="list"
+  >
+    <div
+      className="item scale divider visible transition"
+      onClick={[Function]}
+      role="listitem"
+      style={
+        Object {
+          "animationDuration": undefined,
+        }
+      }
+    >
+      <div
+        className="ui horizontal divider"
+      >
+        January 1, 2020
+      </div>
+    </div>
+    <div
+      className="item scale visible transition"
+      onClick={[Function]}
+      role="listitem"
+      style={
+        Object {
+          "animationDuration": undefined,
+        }
+      }
+    >
+      Item 1
+    </div>
+    <div
+      className="item scale visible transition"
+      onClick={[Function]}
+      role="listitem"
+      style={
+        Object {
+          "animationDuration": undefined,
+        }
+      }
+    >
+      Item 2
+    </div>
+    <div
+      className="item scale divider visible transition"
+      onClick={[Function]}
+      role="listitem"
+      style={
+        Object {
+          "animationDuration": undefined,
+        }
+      }
+    >
+      <div
+        className="ui horizontal divider"
+      >
+        January 2, 2020
+      </div>
+    </div>
+    <div
+      className="item scale visible transition"
+      onClick={[Function]}
+      role="listitem"
+      style={
+        Object {
+          "animationDuration": undefined,
+        }
+      }
+    >
+      Item 3
+    </div>
+  </div>
+  <div />
+</div>
+`;
+
+exports[`Can be divided by month 1`] = `
+<div
+  className="ui basic segment listing"
+>
+  <div
+    className="ui divided list"
+    role="list"
+  >
+    <div
+      className="item scale divider visible transition"
+      onClick={[Function]}
+      role="listitem"
+      style={
+        Object {
+          "animationDuration": undefined,
+        }
+      }
+    >
+      <div
+        className="ui horizontal divider"
+      >
+        January 2020
+      </div>
+    </div>
+    <div
+      className="item scale visible transition"
+      onClick={[Function]}
+      role="listitem"
+      style={
+        Object {
+          "animationDuration": undefined,
+        }
+      }
+    >
+      Item 1
+    </div>
+    <div
+      className="item scale divider visible transition"
+      onClick={[Function]}
+      role="listitem"
+      style={
+        Object {
+          "animationDuration": undefined,
+        }
+      }
+    >
+      <div
+        className="ui horizontal divider"
+      >
+        February 2020
+      </div>
+    </div>
+    <div
+      className="item scale visible transition"
+      onClick={[Function]}
+      role="listitem"
+      style={
+        Object {
+          "animationDuration": undefined,
+        }
+      }
+    >
+      Item 2
+    </div>
+    <div
+      className="item scale divider visible transition"
+      onClick={[Function]}
+      role="listitem"
+      style={
+        Object {
+          "animationDuration": undefined,
+        }
+      }
+    >
+      <div
+        className="ui horizontal divider"
+      >
+        March 2020
+      </div>
+    </div>
+    <div
+      className="item scale visible transition"
+      onClick={[Function]}
+      role="listitem"
+      style={
+        Object {
+          "animationDuration": undefined,
+        }
+      }
+    >
+      Item 3
+    </div>
+  </div>
+  <div />
+</div>
+`;
+
+exports[`Can have a fallback 1`] = `
+<div
+  className="ui basic loading segment empty listing"
+>
+  <div
+    className="ui list"
+    role="list"
+  >
+    <div
+      className="item scale fallback animating out visible transition"
+      onClick={[Function]}
+      role="listitem"
+      style={
+        Object {
+          "animationDuration": "300ms",
+        }
+      }
+    >
+      No records
+    </div>
+  </div>
+  <div />
+</div>
+`;
+
+exports[`Can load new records 1`] = `
+<div
+  className="ui basic loading segment empty listing"
+>
+  <div
+    className="ui list"
+    role="list"
+  />
+  <div />
+</div>
+`;
+
+exports[`Simple listing result 1`] = `
+<div
+  className="ui basic segment listing"
+>
+  <div
+    className="ui list"
+    role="list"
+  >
+    <div
+      className="item scale visible transition"
+      onClick={[Function]}
+      role="listitem"
+      style={
+        Object {
+          "animationDuration": undefined,
+        }
+      }
+    >
+      Item 1
+    </div>
+    <div
+      className="item scale visible transition"
+      onClick={[Function]}
+      role="listitem"
+      style={
+        Object {
+          "animationDuration": undefined,
+        }
+      }
+    >
+      Item 2
+    </div>
+    <div
+      className="item scale visible transition"
+      onClick={[Function]}
+      role="listitem"
+      style={
+        Object {
+          "animationDuration": undefined,
+        }
+      }
+    >
+      Item 3
+    </div>
+  </div>
+  <div />
+</div>
+`;

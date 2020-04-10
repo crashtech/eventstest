@@ -2,6 +2,7 @@
   "name": "test99",
   "private": true,
   "scripts": {
+    "jest": "jest app/javascript/tests",
     "pre-commit": "lint-staged",
     "eslint": "eslint app/javascript -f codeframe --ext .js,.jsx",
     "eslint:fix": "eslint app/javascript --fix -f codeframe --ext .js,.jsx"
@@ -29,10 +30,27 @@
   },
   "devDependencies": {
     "babel-eslint": "^10.1.0",
+    "babel-jest": "^25.3.0",
     "eslint": "^6.8.0",
     "eslint-plugin-react": "^7.19.0",
+    "identity-obj-proxy": "^3.0.0",
+    "jest": "^25.3.0",
     "lint-staged": "^10.1.2",
+    "react-test-renderer": "^16.13.1",
+    "regenerator-runtime": "^0.13.5",
     "webpack-dev-server": "^3.10.3"
+  },
+  "jest": {
+    "moduleDirectories": [
+      "node_modules",
+      "app/javascript/packs"
+    ],
+    "moduleNameMapper": {
+      "@(api|config|pages|shared)$": "<rootDir>/app/javascript/$1",
+      "@(api|config|pages|shared)\/(.*)$": "<rootDir>/app/javascript/$1/$2.jsx",
+      "\\.(jpg|jpeg|png|gif|eot|otf|webp|svg|ttf|woff|woff2|mp4|webm|wav|mp3|m4a|aac|oga|css|scss)$":
+      "identity-obj-proxy"
+    }
   },
   "lint-staged": {
     "**/!(schema).{rb,erb,arb}": "rubocop -a",
