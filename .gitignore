@@ -10,7 +10,7 @@
 # Ignore all logfiles and tempfiles.
 /log/*
 /tmp/*
-
+/coverage
 
 /node_modules
 /yarn-error.log

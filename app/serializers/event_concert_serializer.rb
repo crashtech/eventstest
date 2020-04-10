@@ -20,8 +20,6 @@
 #  index_events_on_music_genre_ids  (music_genre_ids) USING gin
 #
 class EventConcertSerializer < EventSerializer
-  attributes :id
-
   attribute :artist do
     object.artist&.name
   end

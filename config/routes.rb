@@ -1,6 +1,9 @@
 Rails.application.routes.draw do
   scope path: '/api' do
-    get '/typeahead/:action', controller: 'typeahead'
+    namespace :typeahead do
+      get :artists
+      get :locations
+    end
 
     resources :events, only: %i[index create]
 

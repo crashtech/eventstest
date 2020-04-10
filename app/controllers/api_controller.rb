@@ -8,11 +8,6 @@ class ApiController < ApplicationController
 
   skip_before_action :verify_authenticity_token
 
-  # Just so it has a root url
-  def index
-    render json: { version: 'v1' }
-  end
-
   protected
 
     # Use request params to apply pagination to records

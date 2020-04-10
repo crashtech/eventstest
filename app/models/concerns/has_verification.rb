@@ -10,6 +10,6 @@ module HasVerification
   end
 
   def verify!
-    touch_attribute(:verified_at)
+    touch(:verified_at)
   end
 end

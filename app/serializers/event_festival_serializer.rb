@@ -20,8 +20,6 @@
 #  index_events_on_music_genre_ids  (music_genre_ids) USING gin
 #
 class EventFestivalSerializer < EventSerializer
-  attributes :id
-
   attribute :artists do
     object.artists.map(&:name)
   end
