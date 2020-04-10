@@ -1,13 +1,10 @@
-body {
-  background-color: #333333;
-}
-
 body > main#layout {
   width: 100%;
   color: white;
   display: grid;
   min-height: 100%;
   padding: 6.5rem 2rem 2rem;
+  background-color: #333333;
 
   > .ui.segment {
     border: none;

@@ -51,7 +51,7 @@ chdir APP_ROOT do
   puts '== Installing dependencies =='
   system! 'gem install bundler --conservative'
   system('bundle check') || system!('bundle install')
-  system('bin/yarn install')
+  system!('bin/yarn install')
 
   puts '== Installing Git Hooks =='
   system('bin/installhooks')

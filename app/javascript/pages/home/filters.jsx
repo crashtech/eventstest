@@ -18,7 +18,7 @@ export default class Filters extends Component {
   constructor(props) {
     super(props)
 
-    SharedApi.musicGenres().then(action(result => {
+    SharedApi.musicGenres(true).then(action(result => {
       this.genres = result.data
       this.loading = false
     }))

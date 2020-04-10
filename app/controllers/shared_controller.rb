@@ -1,6 +1,8 @@
 class SharedController < ApiController
   def music_genres
-    render_options MusicGenre.verified.default_sortted.pluck(:id, :name)
+    collection = MusicGenre.default_sortted
+    collection = collection.verified unless params[:unverified].eql?('true')
+    render_options collection.pluck(:id, :name)
   end
 
   protected

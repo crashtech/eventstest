@@ -1,5 +1,5 @@
 import Api from '@api'
 
 export default {
-  musicGenres: () => Api.get('/shared/music_genres')
+  musicGenres: (unverified = null) => Api.get('/shared/music_genres', { params: { unverified } })
 }

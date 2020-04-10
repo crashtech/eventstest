@@ -11,7 +11,7 @@ import Notification from '@shared/notification'
 const HomePage = lazy(() => import('@pages/home'))
 const CreateEventPage = lazy(() => import('@pages/create-event'))
 
-import 'semantic-ui-css/semantic.min.css'
+require('semantic-ui-css/semantic.min.css')
 import '@shared/application.scss'
 
 configure({ enforceActions: 'observed' })
