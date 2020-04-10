@@ -3,6 +3,7 @@
   "private": true,
   "scripts": {
     "jest": "jest app/javascript/tests",
+    "test": "rspec spec && jest app/javascript/tests",
     "pre-commit": "lint-staged",
     "eslint": "eslint app/javascript -f codeframe --ext .js,.jsx",
     "eslint:fix": "eslint app/javascript --fix -f codeframe --ext .js,.jsx"
