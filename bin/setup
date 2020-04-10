@@ -53,6 +53,9 @@ chdir APP_ROOT do
   system('bundle check') || system!('bundle install')
   system('bin/yarn install')
 
+  puts '== Installing Git Hooks =='
+  system('bin/installhooks')
+
   puts "\n== Preparing database =="
   setup_db_env!
   system! 'bin/rails db:setup'
