@@ -1,0 +1,17 @@
+main#layout .ui.basic.listing.segment {
+  margin: 0;
+
+  &.loading:before {
+    background-color: rgba(black, 0.2);
+  }
+
+  > .ui.list {
+    > .item.divider > div {
+      color: white;
+    }
+
+    > .item.divider:first-child > div {
+      margin-top: 0;
+    }
+  }
+}

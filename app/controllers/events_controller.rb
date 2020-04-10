@@ -1,7 +1,8 @@
 class EventsController < ApiController
   def index
     Event.using_timezone do
-      collection = apply_filters(Event.default_sortted.future)
+      collection = apply_filters(Event.default_sortted.future.order(:title))
+      collection = collection.includes(:location, :artists, :music_genres)
       render json: apply_pagination(collection)
     end
   end

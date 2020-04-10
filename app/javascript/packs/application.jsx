@@ -30,7 +30,7 @@ document.addEventListener('DOMContentLoaded', () => {
         <Switch>
           <Route exact path="/" component={HomePage} />
           <Route path="/create" component={CreateEventPage} />
-          <Route path="/:genreSlug" component={HomePage} />
+          <Route path="/:genreSlug" render={props => <HomePage key="2" {...props} />} />
         </Switch>
       </Suspense>
     </Router>,

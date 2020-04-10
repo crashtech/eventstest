@@ -1,6 +1,8 @@
-import React, { Component, Fragment } from 'react'
+import React, { Component } from 'react'
+import cx from 'classnames'
+import { get } from 'lodash'
 
-import { observable, action, runInAction } from 'mobx'
+import { observable, action } from 'mobx'
 import { observer } from 'mobx-react'
 
 import { EventsApi } from '@api'
@@ -16,36 +18,29 @@ export default class Home extends Component {
 
   @observable items = []
 
-  genreSlug = null
-
-  constructor(props) {
-    super(props)
-
-    const { genreSlug } = props.match.params
-    if(genreSlug) {
-      this.genreSlug = genreSlug
-      runInAction(() => this.genres = [genreSlug])
-    }
-
-    this.fetch()
+  get genreSlug() {
+    return get(this.props, 'match.params.genreSlug')
   }
 
-  @action fetch = () => {
-    this.refetch().then(result => {
-      this.items = result.data
+  @action update = items => {
+    this.items = items
+  }
+
+  fetch = (params = {}) => {
+    if(this.genres.length) { params['skip_genres'] = this.genres }
+    if(this.genreSlug) { params['genre_slug'] = this.genreSlug }
+    return EventsApi.index(params).then(result => {
+      result.update = this.update
+      return result
     })
   }
 
-  refetch = (params = {}) => {
-    if(this.genres.length) { params['skip_genres'] = this.genres }
-    if(this.genreSlug) { params['genre_slug'] = this.genreSlug }
-    return EventsApi.index(params)
-  }
-
   render() {
-    return <Fragment>
+    const classes = cx({ 'with-filters': !this.genreSlug })
+
+    return <div id="home" className={classes}>
       {!this.genreSlug && <Filters value={this.genres} onChange={this.fetch} />}
-      <List items={this.items} loader={this.refetch} />
-    </Fragment>
+      <List items={this.items} fetcher={this.fetch} />
+    </div>
   }
 }

@@ -37,7 +37,7 @@ export default class Filters extends Component {
       inputValue.push(value)
     }
 
-    onChange()
+    onChange().then(result => result.update(result.data))
   }
 
   render() {

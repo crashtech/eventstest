@@ -1,0 +1,61 @@
+#!/usr/bin/env ruby
+require 'optparse'
+require_relative '../config/boot'
+require_relative '../config/application'
+Rails.application.require_environment!
+
+options = {}
+OptionParser.new do |opts|
+  opts.banner = "Usage: bin/fakeevent [options]"
+  opts.on('-q', '--quantity QUANTITY', Integer,   'Quantity of events [50]')
+  opts.on('-d', '--days DAYS',         Integer,   'Number of days from today to spread [10]')
+  opts.on('-g', '--genres GENRES',     Integer,   'Number of music genres per event [3]')
+  opts.on('-a', '--artists ARTISTS',   Integer,   'Number of artists per event [3]')
+  opts.on('-U', '--unverified',        TrueClass, 'Add unverified records [TRUE]')
+end.parse!(into: options)
+
+# Set defaults
+options.reverse_merge!(
+  quantity:   50,
+  days:       10,
+  genres:     3,
+  artists:    3,
+  unverified: true,
+)
+
+# Load some data
+event_types  = %w[EventConcert EventFestival]
+artists      = Artist.all.to_a
+locations    = Location.all.to_a
+music_genres = MusicGenre.all.to_a
+dates        = (Date.current..(Date.current + options[:days].days)).to_a
+
+# Add a nil position for unverified records
+if options[:unverified]
+  artists << nil
+  locations << nil
+  music_genres << nil
+end
+
+# Create the records
+options[:quantity].times do |n|
+  kind = event_types.sample
+
+  set_artists = (kind.eql?('EventConcert') ? 1 : rand(2..options[:artists]))&.times&.map do
+    artists.sample || Faker::Name.name
+  end.uniq
+
+  set_genres = rand(1..options[:genres])&.times&.map do
+    music_genres.sample || Faker::Music.genre
+  end.uniq
+
+  Event.create(
+    title: "Fake Event #{n}",
+    date: dates.sample,
+    kind: kind,
+
+    location: (locations.sample || Faker::WorldCup.stadium),
+    artists: set_artists,
+    music_genres: set_genres,
+  )
+end

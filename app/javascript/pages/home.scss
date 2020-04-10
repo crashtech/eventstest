@@ -1,3 +1,8 @@
-// main#layout {
-//   grid-template-columns: min-content 1fr;
-// }
+body > main#layout > div#home {
+  display: grid;
+  grid-gap: 2rem;
+
+  &.with-filters {
+    grid-template-columns: min-content 1fr;
+  }
+}

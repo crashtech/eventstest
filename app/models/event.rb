@@ -31,9 +31,10 @@ class Event < ApplicationRecord
   ## Scopes
   scope :default_sortted, -> { order(:date) }
   scope :future, -> { where(arel_attribute(:date).gteq(Date.current)) }
+  scope :with_genre_slug, ->(value) { joins(:music_genres).where(music_genres: { slug: value }) }
 
   scope :without_genres, ->(*values) do
-    values = Arel.array(values, cast: :bigint)
+    values = Arel.array(values.flatten.compact, cast: :bigint)
     condition = arel_attribute(:music_genre_ids).overlaps(values)
     where(Arel::Nodes::Not.new(condition))
   end
@@ -47,6 +48,6 @@ class Event < ApplicationRecord
   private
 
     def check_future_date
-      errors.add(:date, :invalid) unless date_changed? && date.present? && date.future?
+      errors.add(:date, :invalid) if date_changed? && date.present? && !date.future?
     end
 end
