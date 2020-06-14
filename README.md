@@ -5,7 +5,7 @@ allows users to create and find events.
 
 # Setup
 
-You can configure the application ro run locally by simply running the
+You can configure the application to run locally by simply running the
 following, once you have the right Ruby version `2.5.3` set in the
 current directory:
 
@@ -17,14 +17,14 @@ This will guide you through the process of basic configuration.
 
 # Fake data
 
-The application provides an exectable to create fake events, so you can test it
+The application provides an executable to create fake events, so that you can test it
 without the need to manually create multiple events.
 
-Check `bin/fakeevent -h` for more information
+Check `bin/fakeevent -h` for more information.
 
 # Testing
 
-You can tun all tests using: `yarn test`.
+You can run all tests using: `yarn test`.
 
 ## Rails
 
