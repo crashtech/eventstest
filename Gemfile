@@ -28,7 +28,7 @@ gem 'rack-cors', '~> 1.1', '>= 1.1.1'
 
 ## EXTRAS
 # TZInfo provides daylight savings aware transformations between times in different time zones
-gem 'tzinfo', '~> 1.2', '>= 1.2.5'
+gem 'tzinfo', '~> 1.2'
 
 ## FRONT END APP
 # Transpile app-like JavaScript. Read more: https://github.com/rails/webpacker
